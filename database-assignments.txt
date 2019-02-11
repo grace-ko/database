@@ -39,16 +39,25 @@ String, numbers, date
 8. Given this users table, write SQL queries using the following criteria and include the output:
 
 The email and sign-up date for the user named DeAndre Data.
-A: SELECT email, signUpDate
-   FROM user
+A: SELECT email, signup
+   FROM users
    WHERE name = 'DeAndre Data';
+Output:
+   email	            signup
+   datad@comcast.net	2008-01-20T00:00:00.000Z
 
 The user ID for the user with email 'aleesia.algorithm@uw.edu'.
-A: SELECT userID
-   FROM user
+A: SELECT userid
+   FROM users
    WHERE email = 'aleesia.algorithm@uw.edu';
+Output:
+   userid
+   1
 
 All the columns for the user ID equal to 4.
 A: SELECT *
-   FROM user
-   WHERE userID = 4;
+   FROM users
+   WHERE userid = 4;
+Output:
+   userid	 name	           email	            signup
+   4	     Brandy Boolean	 bboolean@nasa.gov	1999-10-15T00:00:00.000Z

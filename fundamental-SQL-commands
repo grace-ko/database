@@ -48,24 +48,76 @@ Use the commands above to complete the following tasks, and submit the SQL state
 
 5. Write a command to create a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
 
+  CREATE TABLE library (
+    ISBN integer,
+    title text,
+    author text,
+    genre text,
+    publishing_date date,
+    number_of_copies integer,
+    available_copies integer
+  );
+
     Find three books and add their information to the table.
-      
+      INSERT INTO library (ISBN, title, author, genre, publishing_date, number_of_copies, available_copies)
+      VALUES
+      (9780062457714, 'The subtle art of not giving a f*ck', 'Mark Manson', 'self-help', 09/13/2016, 1, 1),
+      (9780061472794, 'Signature in the cell', 'Stephen Meyer', 'Science', 06/23/2009, 2, 1),
+      (9780679781585, 'Memoirs of a Geisha', 'Arthur Golden', 'Historical Fiction', 09/27/1997, 2, 2);
+
     Someone has just checked out one of the books. Change the number of available copies to 1 fewer.
+      UPDATE library SET available_copies=0 WHERE ISBN=9780062457714;
 
     Now one of the books has been added to the banned books list. Remove it from the table.
+      DELETE FROM library WHERE ISBN=9780679781585;
 
 6. Write a command to make a new table to hold spacecrafts. Information should include id, name, year launched, country of origin, a brief description of the mission, orbiting body, if it is currently operating, and its approximate miles from Earth. In addition to the table creation, provide commands that perform the following operations:
 
+  CREATE TABLE spacecrafts (
+    id integer,
+    name text,
+    year integer,
+    country text,
+    description text,
+    orbiting_body text,
+    isActive boolean,
+    distance text
+  );
+
     Add three non-Earth-orbiting satellites to the table.
+      INSERT INTO spacecrafts (id, name, year, country, description, orbiting_body, isActive, distance)
+      VALUES
+      (1, 'Voyager 1', 1977, 'USA', 'most distant human-made object from Earth', 'interstellar medium', true, '145.11AU'),
+      (2, 'Pioneer 10', 1972, 'USA', 'The first of five artificial objects to achieve the escape velocity that allowed to leave the Solar System', 'heliosphere', false, '80AU'),
+      (3, 'Juno', 2011, 'USA', 'second spacecraft to orbit Jupiter', 'Jupiter', true, '347mi');
 
     Remove one of the satellites from the table since it has just crashed into the planet.
-
+      DELETE FROM spacecrafts WHERE id=3;
     Edit another satellite because it is no longer operating and change the value to reflect that.
+      UPDATE spacecrafts SET isActive=false WHERE id=2;
 
 7. Write a command to create a new table to hold the emails in your inbox. This table should include an id, the subject line, the sender, any additional recipients, the body of the email, the timestamp, whether or not you have read the email, and the id of the email chain it's in. Also provide commands that perform the following operations:
 
+  CREATE TABLE emails (
+    id integer,
+    subject text,
+    sender text,
+    recipients text,
+    body text,
+    timestamp timestamp,
+    read boolean,
+    chain_id integer
+  );
+
     Add three new emails to the inbox.
+      INSERT INTO emails (id, subject, sender, recipients, body, timestamp, read, chain_id)
+      VALUES
+      (),
+      (),
+      ();
 
     You deleted one of the emails, so write a command to remove the row from the inbox table.
+      DELETE FROM emails WHERE id=___;
 
     You started reading an email but just heard a crash in another room. Mark the email as unread before investigating the crash, so you can come back and read it later.
+      UPDATE emails SET read=false WHERE id=__;

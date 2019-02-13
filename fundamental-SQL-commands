@@ -5,13 +5,13 @@ Use the commands above to complete the following tasks, and submit the SQL state
     INSERT INTO, UPDATE, DELETE
 
 2. Explain the structure for each type of command.
-    INSERT INTO tableName (columNames)
+    INSERT INTO table_name (column_one, column_two, column_three)
     VALUES
-    (row values separated by commas);
+    (value_one, value_two, value_three);
 
-    INSERT INTO tableName VALUES (row values separated by commas);
-    UPDATE tableName SET columnName=value WHERE columnName=value;
-    DELETE FROM tableName WHERE columnName=value;
+    INSERT INTO table_name VALUES (value_one, value_two, value_three);
+    UPDATE table_name SET column_name_one=value_one WHERE column_name_two=value_two;
+    DELETE FROM tableName WHERE column_name=value;
 
 3. What are some of the data types that can be used in tables? Give a real-world example of each type.
     Price, price = $150
@@ -48,15 +48,15 @@ Use the commands above to complete the following tasks, and submit the SQL state
 
 5. Write a command to create a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
 
-  CREATE TABLE library (
-    ISBN integer,
-    title text,
-    author text,
-    genre text,
-    publishing_date date,
-    number_of_copies integer,
-    available_copies integer
-  );
+CREATE TABLE library (
+  ISBN integer,
+  title text,
+  author text,
+  genre text,
+  publishing_date date,
+  number_of_copies integer,
+  available_copies integer
+);
 
     Find three books and add their information to the table.
       INSERT INTO library (ISBN, title, author, genre, publishing_date, number_of_copies, available_copies)
@@ -112,12 +112,12 @@ Use the commands above to complete the following tasks, and submit the SQL state
     Add three new emails to the inbox.
       INSERT INTO emails (id, subject, sender, recipients, body, timestamp, read, chain_id)
       VALUES
-      (),
-      (),
-      ();
+      (1234, 're: schedule', 'Grace Ko', 'Bob S.', 'Ea sed fierent maiestatis honestatis, has omnes iriure an. Denique salutandi facilisis et ius, dico feugiat senserit cu quo. Meis animal theophrastus pro et. Case rebum vel eu. Nam ut nulla congue decore. Rationibus incorrupte persequeris vim no, mel atqui lucilius accusata at.', '16-05-2011 15:36:38', true, 1),
+      (5192, 'Application', 'Helen Johnson', 'none', 'Lorem ipsum dolor sit amet, fabellas omittantur vim ne, ut nec diceret maiestatis, ea nec mucius ponderum.', '23-02-2018 12:16:20', false, 2),
+      (3148, 'hi', 'John Doe', 'Jen A.', 'Lorem ipsum dolor sit amet, vel ne forensibus deterruisset, no mei illud consul consetetur.', '12-05-2008 23:39:12', true, 3);
 
     You deleted one of the emails, so write a command to remove the row from the inbox table.
-      DELETE FROM emails WHERE id=___;
+      DELETE FROM emails WHERE id=1234;
 
     You started reading an email but just heard a crash in another room. Mark the email as unread before investigating the crash, so you can come back and read it later.
-      UPDATE emails SET read=false WHERE id=__;
+      UPDATE emails SET read=false WHERE id=5192;

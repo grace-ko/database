@@ -24,14 +24,14 @@ Use the commands above to complete the following tasks, and submit the SQL state
       First and last name: text
       Whether they sent in their RSVP: boolean
       Number of guests: integer
-      Number of meals: numeric
+      Number of meals: numeric(2, 1)
 
     Write a command that creates the table to track the wedding dinner.
       CREATE TABLE wedding_dinner (
         name text,
         RSVPed boolean,
         number_of_guests integer,
-        number_of_meals numeric
+        number_of_meals numeric(2, 1)
       );
 
     Write a command that adds a column to track whether the guest sent a thank you card.
@@ -81,15 +81,15 @@ CREATE TABLE library (
     description text,
     orbiting_body text,
     isActive boolean,
-    distance text
+    distance numeric(6, 2)
   );
 
     Add three non-Earth-orbiting satellites to the table.
       INSERT INTO spacecrafts (id, name, year, country, description, orbiting_body, isActive, distance)
       VALUES
-      (1, 'Voyager 1', 1977, 'USA', 'most distant human-made object from Earth', 'interstellar medium', true, '145.11AU'),
-      (2, 'Pioneer 10', 1972, 'USA', 'The first of five artificial objects to achieve the escape velocity that allowed to leave the Solar System', 'heliosphere', false, '80AU'),
-      (3, 'Juno', 2011, 'USA', 'second spacecraft to orbit Jupiter', 'Jupiter', true, '347mi');
+      (1, 'Voyager 1', 1977, 'USA', 'most distant human-made object from Earth', 'interstellar medium', true, 145.11),
+      (2, 'Pioneer 10', 1972, 'USA', 'The first of five artificial objects to achieve the escape velocity that allowed to leave the Solar System', 'heliosphere', false, 80),
+      (3, 'Juno', 2011, 'USA', 'second spacecraft to orbit Jupiter', 'Jupiter', true, 347);
 
     Remove one of the satellites from the table since it has just crashed into the planet.
       DELETE FROM spacecrafts WHERE id=3;

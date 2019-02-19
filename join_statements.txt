@@ -1,0 +1,65 @@
+1. How do you find related data held in two separate data tables?
+A: The information in one table is related to that of other tables by foreign key.
+
+2. Explain, in your own words, the difference between an INNER JOIN, LEFT OUTER JOIN, and RIGHT OUTER JOIN. Give a real-world example for each.
+A:INNER JOIN only returns data where a match is found, whereas all rows from one table regardless of whether a match is found is returned in OUTER JOIN.
+
+3. Define primary key and foreign key. Give a real-world example for each.
+
+4. Define aliasing.
+Creating shorthand name for tables
+
+5. Change this query so that you are using aliasing:
+SELECT professor.name, compensation.salary, compensation.vacation_days
+  FROM professor
+  JOIN compensation
+  ON professor.id = compensation.professor_id;
+
+SELECT p.name, c.salary
+  FROM professor AS p
+  JOIN compensation AS c
+  ON p.id = c.professor_id;
+
+6. Why would you use a NATURAL JOIN? Give a real-world example.
+
+7. Using this Employee schema and data, write queries to find the following information:
+> List all employees and all shifts.
+SELECT e.id, e.name, s.date, s.start_time, s.end_time
+  FROM employees AS e
+  RIGHT OUTER JOIN shifts AS s
+  ON e.id = s.id;
+
+8. Using this Adoption schema and data, please write queries to retrieve the following information and include the results:
+> Create a list of all volunteers. If the volunteer is fostering a dog, include each dog as well.
+SELECT v.first_name, v.last_name, d.name
+  FROM volunteers AS v
+  LEFT OUTER JOIN dogs as d
+  ON v.foster_dog_id = d.id;
+
+> The cat's name, adopter's name, and adopted date for each cat adopted within the past month to be displayed as part of the "Happy Tail" social media promotion which posts recent successful adoptions.
+SELECT adopters.first_name, adopters.last_name, cats.name, cat_adoptions.date
+  FROM adopters
+  JOIN cats ON adopters.id = cats.id
+  JOIN cat_adoptions on cat_adoptions.adopter_id = adopters.id;
+
+> Create a list of adopters who have not yet chosen a dog to adopt.
+SELECT a.first_name, a.last_name, d.dog_id
+  FROM adopters AS a
+  LEFT OUTER JOIN dog_adoptions AS d
+  ON a.id = d.adopter_id
+  WHERE d.dog_id IS null;
+
+
+
+
+> Lists of all cats and all dogs who have not been adopted.
+
+
+> The name of the person who adopted Rosco.
+
+9. Using this Library schema and data, write queries applying the following scenarios and include the results:
+> To determine if the library should buy more copies of a given book, please provide the names and position, in order, of all of the patrons with a hold (request for a book with all copies checked out) on "Advanced Potion-Making".
+
+
+
+> List all of the library patrons. If they have one or more books checked out, list the books with the patrons.
